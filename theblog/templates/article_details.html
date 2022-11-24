@@ -11,6 +11,8 @@
     <small> 
         By: {{post.author.first_name}} {{post.author.last_name}}
     </small> <br>
+    <a href="{% url 'update_post' post.pk %}"> (Edit) </a>
+
     <hr>
     <br>
     {{post.body}}

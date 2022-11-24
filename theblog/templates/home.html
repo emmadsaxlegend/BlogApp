@@ -8,6 +8,7 @@
     <li><a href="{% url 'article-detail' post.pk %}"> {{post.title}}</a>- {{post.author}}<br/>
         First Name: {{post.author.first_name}}<br/>
         Last Name: {{post.author.last_name}}<br>
+        <a href="{% url 'update_post' post.pk %}"> (Edit) </a>
 
     Body: {{post.body}} 
 </li>
