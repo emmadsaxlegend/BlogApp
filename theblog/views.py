@@ -11,7 +11,7 @@ from django.urls import reverse_lazy
 class HomeView(ListView):
     model = Post
     template_name = 'home.html'
-    ordering = ['-id'] # making the latest post to be untop
+    ordering = ['post_date'] # making the latest post to be untop
 
 
 class ArticleDetailView(DetailView):
