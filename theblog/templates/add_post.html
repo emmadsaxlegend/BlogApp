@@ -4,13 +4,24 @@ Create a New Post
 {% endblock %}
 
 {% block content %}
-<h1> Add Post </h1>
-<br>
-<div class= "form-group">
-    <form method= "POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-secondary">Post</button>
-    </form
-</div>
+{% if user.is_authenticated %}
+    <h1> Add Post </h1>
+    <br>
+    <div class= "form-group">
+        <form method= "POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-secondary">Post</button>
+        </form
+    </div>
+
+    <script>
+        var name = "{{ user.username }}";
+        document.getElementById("a-user").value = name;
+    </script>
+
+{% else %}
+    <div class="alert alert-danger" role="alert">Login to be able to edit post  </div>
+{% endif %}
+
 {% endblock %}
