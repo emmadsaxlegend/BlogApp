@@ -34,8 +34,19 @@
     <hr>
     <form action="{% url 'like-post' post.pk %}" method="POST">
         {%csrf_token%}
-        <button type="submit", name="post_id", value = "{{post.id}}" class="btn btn-primary btn-sm">Like</button>
+    
+    {%if user.is_authenticated%}
+        {% if liked%}
+            <button type="submit", name="post_id", value = "{{post.id}}" class="btn btn-danger btn-sm">Unlike</button>
+        {%else%}
+            <button type="submit", name="post_id", value = "{{post.id}}" class="btn btn-primary btn-sm">Like</button>
+        {%endif%}
         {{total_likes}} Likes
+
+    {%else%}
+        {{total_likes}} Person have liked this post. <a href="{% url 'login' %}">Login</a> to like this post
+
+    {%endif%}
     </form>
 
 {% endblock %}
