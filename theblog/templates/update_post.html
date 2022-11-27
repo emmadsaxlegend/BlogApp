@@ -6,6 +6,8 @@ Create a New Post
 {% block content %}
 
 {% if user.is_authenticated %}
+    {% if user.id == post.author.id%}
+
 
 <h1> Edit Post </h1>
 <br>
@@ -16,8 +18,12 @@ Create a New Post
         <button class="btn btn-secondary">Update</button>
     </form
 </div>
+    {%else%}
+    <div class="alert alert-danger" role="alert">
+        You are not allowed to edit this post  </div>
+    {%endif%}
 {%else%}
-Log in to be able to edit post
-{% endif %}
+<div class="alert alert-danger" role="alert">
+    Login to be able to edit post  </div>{% endif %}
 
 {% endblock %}
