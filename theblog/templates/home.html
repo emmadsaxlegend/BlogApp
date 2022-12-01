@@ -17,7 +17,7 @@
             {%endif%}
         {% endif %}
         <br>
-    {{post.body|slice:":120"|safe}}....<a href="{% url 'article-detail' post.pk %}">View More</a>
+        {{post.snippet}}<a href="{% url 'article-detail' post.pk %}">Click to view more</a>
     <hr>
 
 </li>
