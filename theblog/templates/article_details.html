@@ -70,6 +70,7 @@
                 {{post.author.first_name}} {{post.author.last_name}}
             </h5>
               <p class ="small text-muted">
+                <a href="{% url 'show_profile_page' post.author.profile.id %}"> Profile Pages </a> |
                 {% if post.author.profile.website_url%}
                 <a href = "{{post.author.profile.website_url}}">Website</a> | 
                 {% endif %}
