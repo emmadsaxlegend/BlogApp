@@ -55,6 +55,21 @@
     </form>
     <br>
     <br>
+
+    <h2> Comments</h2>
+    {%if not post.comments.all%}
+    No Comments yet.... <a href="#"> Add one </a>
+    {%else%}
+      {% for comment in post.comments.all %}
+        <strong>
+          {{comment.name}} - 
+          {{comment.date_added}}
+        </strong>
+        <br>
+        {{comment.body}}
+        {%endfor%}
+    {%endif%}
+<hr> 
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4">
