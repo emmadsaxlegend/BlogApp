@@ -1,29 +1,23 @@
 {% extends 'base.html' %}
 {% block title %}
-Edit Profile Page
+Create a New Profile Page
 {% endblock %}
 
 {% block content %}
 {% if user.is_authenticated %}
-    {%if user.id == profile.user.id%}
-    <h1> Edit Profile Page</h1>
+    <h1> Create Profile Page </h1>
     <br>
     <div class= "form-group">
         <form method= "POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <button class="btn btn-secondary">Upadate Profile</button>
+            <button class="btn btn-secondary">Create Profile</button>
         </form
     </div>
 
-   {% else%}
-   You are not the correct user to Edit this Page....
-
-   {%endif%}
 
 {% else %}
     <div class="alert alert-danger" role="alert">Login to be able to edit post  </div>
 {% endif %}
-
 
 {% endblock %}
